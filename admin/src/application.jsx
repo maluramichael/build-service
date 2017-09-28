@@ -1,5 +1,5 @@
 import React from 'react';
-import 'spectre.css';
+// import 'spectre.css';
 
 import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
 
@@ -11,7 +11,7 @@ import { BuildList } from './builds.jsx';
 import { ArtifactList } from './artifacts.jsx';
 
 const Application = () => (
-  <Admin dashboard={Dashboard}>
+  <Admin dashboard={Dashboard} restClient={jsonServerRestClient('http://localhost:9000')}>
     <Resource name="users" list={UserList} />
     <Resource name="projects" list={ProjectList} />
     <Resource name="builds" list={BuildList} />
