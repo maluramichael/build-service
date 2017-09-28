@@ -1,0 +1,23 @@
+version: '2'
+services:
+  api:
+    build: api
+    links:
+       - db
+  admin:
+    build: admin
+    ports:
+      - 9998:80
+  db:
+    image: mysql/mysql-server
+    ports:
+      - 3306:3306
+    volumes:
+      - './data:/var/lib/mysql'
+    environment:
+      - MYSQL_USER=build
+      - MYSQL_PASSWORD=build
+      - MYSQL_ROOT_PASSWORD=build
+      - MYSQL_DATABASE=build
+      - MYSQL_ROOT_HOST=*
+      - MYSQL_HOST=*

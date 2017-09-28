@@ -1,0 +1,14 @@
+doc
+node_modules
+build
+.editorconfig
+.eslintignore
+.gitattributes
+.gitignore
+coverage
+stats.json
+.DS_Store
+npm-debug.log
+.idea
+.vscode
+.docker-compose.yml

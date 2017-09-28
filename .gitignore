@@ -1,0 +1,8 @@
+admin/node_modules/
+admin/dist/
+
+api/node_modules/
+
+data/
+
+.DS_Store
