@@ -1,18 +1,23 @@
 const express = require('express');
 
+const {
+  Get,
+  List,
+  Create,
+  Delete,
+  Update
+} = require('../routeHelper');
 
-module.exports = function (app) {
+module.exports = function (app, db) {
+  const Model = db.models.Project;
+
   const router = express.Router();
-  router.get('/', function (req, res) {
-    const data = [{
-      id: 1,
-      name: 'Gemuzzle'
-    }];
-    res.setElements(data.length);
-    res.json(data);
-  });
+  router.get('/', List(Model));
+  router.get('/:id', Get(Model))
+  router.post('/', Create(Model));
+  router.put('/:id', Update(Model));
+  router.delete('/:id', Delete(Model))
 
-  app.use('/router', router);
-
+  app.use('/projects', router);
   return true;
 };

@@ -3,7 +3,7 @@ const R = require('ramda');
 const fs = require('fs');
 const path = require('path');
 
-module.exports = function (app) {
+module.exports = function (app, db) {
   const loadModules = function (resolve, reject) {
     fs.readdir(path.join(__dirname), function (error, files) {
 
@@ -19,7 +19,7 @@ module.exports = function (app) {
 
       const requireModules = R.compose(
         R.all(R.equals(true)),
-        R.map(module => module(app)),
+        R.map(module => module(app, db)),
         R.map(file => require(file)),
         R.map(file => path.join(__dirname, file))
       )

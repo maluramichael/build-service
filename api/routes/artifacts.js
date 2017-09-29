@@ -9,7 +9,7 @@ const {
 } = require('../routeHelper');
 
 module.exports = function (app, db) {
-  const Model = db.models.User;
+  const Model = db.models.Artifact;
 
   const router = express.Router();
   router.get('/', List(Model));
@@ -18,6 +18,6 @@ module.exports = function (app, db) {
   router.put('/:id', Update(Model));
   router.delete('/:id', Delete(Model))
 
-  app.use('/users', router);
+  app.use('/artifacts', router);
   return true;
 };
